@@ -137,36 +137,24 @@ function App() {
           />
 
           <Routes>
-            {/* Public Route */}
+            {/* Public Routes - All features accessible without login */}
+            <Route path="/" element={
+              <Home isBoho={isBoho} isGenz={isGenz} currentTheme={currentTheme} onOpenChat={handleOpenChat} isAuthenticated={isAuthenticated} />
+            } />
             <Route path="/login" element={
               isAuthenticated ? <Navigate to="/" /> : <Login isBoho={isBoho} isGenz={isGenz} currentTheme={currentTheme} onLogin={handleLogin} onThemeChange={handleThemeChange} />
             } />
-
-            {/* Protected Routes */}
-            <Route path="/" element={
-              <ProtectedRoute>
-                <Home isBoho={isBoho} isGenz={isGenz} currentTheme={currentTheme} onOpenChat={handleOpenChat} isAuthenticated={isAuthenticated} />
-              </ProtectedRoute>
-            } />
             <Route path="/todo" element={
-              <ProtectedRoute>
-                <ToDoList isBoho={isBoho} isGenz={isGenz} currentTheme={currentTheme} />
-              </ProtectedRoute>
+              <ToDoList isBoho={isBoho} isGenz={isGenz} currentTheme={currentTheme} />
             } />
             <Route path="/calendar" element={
-              <ProtectedRoute>
-                <Calendar isBoho={isBoho} isGenz={isGenz} currentTheme={currentTheme} />
-              </ProtectedRoute>
+              <Calendar isBoho={isBoho} isGenz={isGenz} currentTheme={currentTheme} />
             } />
             <Route path="/eisenhower" element={
-              <ProtectedRoute>
-                <Eisenhower isBoho={isBoho} isGenz={isGenz} currentTheme={currentTheme} />
-              </ProtectedRoute>
+              <Eisenhower isBoho={isBoho} isGenz={isGenz} currentTheme={currentTheme} />
             } />
             <Route path="/profile" element={
-              <ProtectedRoute>
-                <Profile isBoho={isBoho} isGenz={isGenz} currentTheme={currentTheme} onOpenChat={handleOpenChat} />
-              </ProtectedRoute>
+              <Profile isBoho={isBoho} isGenz={isGenz} currentTheme={currentTheme} onOpenChat={handleOpenChat} />
             } />
           </Routes>
 
