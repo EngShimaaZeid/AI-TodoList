@@ -1,0 +1,210 @@
+/* Global styles */
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ===================================
+   ROBOT CHARACTER
+   =================================== */
+
+.robot-container {
+    position: relative;
+    width: 400px;
+    height: 400px;
+}
+
+.robot-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(38, 191, 240, 0.2) 0%, transparent 70%);
+    border-radius: 50%;
+    animation: pulse 3s ease-in-out infinite;
+}
+
+.robot {
+    position: relative;
+    z-index: 10;
+    animation: float 3s ease-in-out infinite;
+}
+
+.robot-head {
+    position: relative;
+    width: 180px;
+    height: 180px;
+    background: linear-gradient(135deg, #26BFF0 0%, #4DCBF3 100%);
+    border-radius: 16px;
+    margin: 0 auto 1.5rem;
+    box-shadow: 0 8px 32px rgba(38, 191, 240, 0.16);
+}
+
+.robot-antenna {
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 30px;
+    background: #1DA8D4;
+    border-radius: 9999px;
+}
+
+.robot-antenna::after {
+    content: '';
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 16px;
+    height: 16px;
+    background: #26BFF0;
+    border-radius: 50%;
+    box-shadow: 0 0 20px rgba(38, 191, 240, 0.8);
+    animation: blink 2s ease-in-out infinite;
+}
+
+.robot-eyes {
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 40px;
+}
+
+.robot-eye {
+    width: 30px;
+    height: 30px;
+    background: white;
+    border-radius: 50%;
+    position: relative;
+    box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.robot-eye::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 12px;
+    height: 12px;
+    background: #1A1A2E;
+    border-radius: 50%;
+    animation: eyeMove 4s ease-in-out infinite;
+}
+
+.robot-mouth {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 40px;
+    border: 4px solid white;
+    border-top: none;
+    border-radius: 0 0 40px 40px;
+}
+
+.robot-body {
+    width: 200px;
+    height: 140px;
+    background: linear-gradient(135deg, #1DA8D4 0%, #26BFF0 100%);
+    border-radius: 16px;
+    margin: 0 auto;
+    box-shadow: 0 8px 32px rgba(38, 191, 240, 0.16);
+    position: relative;
+}
+
+.robot-chest {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60px;
+    height: 60px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    border: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.robot-chest::after {
+    content: '❤️';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.5rem;
+    animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+.robot-arms {
+    position: absolute;
+    top: 200px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 240px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.robot-arm {
+    width: 30px;
+    height: 100px;
+    background: linear-gradient(135deg, #26BFF0 0%, #4DCBF3 100%);
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(38, 191, 240, 0.12);
+}
+
+.robot-arm-left {
+    animation: waveLeft 2s ease-in-out infinite;
+}
+
+.robot-arm-right {
+    animation: waveRight 2s ease-in-out infinite 1s;
+}
+
+/* ===================================
+   ANIMATIONS
+   =================================== */
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 0.5; transform: translate(-50%, -50%) scale(1); }
+    50% { opacity: 0.8; transform: translate(-50%, -50%) scale(1.1); }
+}
+
+@keyframes blink {
+    0%, 90%, 100% { opacity: 1; }
+    95% { opacity: 0.3; }
+}
+
+@keyframes eyeMove {
+    0%, 100% { transform: translate(-50%, -50%); }
+    25% { transform: translate(-40%, -50%); }
+    75% { transform: translate(-60%, -50%); }
+}
+
+@keyframes heartbeat {
+    0%, 100% { transform: translate(-50%, -50%) scale(1); }
+    50% { transform: translate(-50%, -50%) scale(1.1); }
+}
+
+@keyframes waveLeft {
+    0%, 100% { transform: rotate(0deg); }
+    50% { transform: rotate(-15deg); }
+}
+
+@keyframes waveRight {
+    0%, 100% { transform: rotate(0deg); }
+    50% { transform: rotate(15deg); }
+}

@@ -1,0 +1,606 @@
+/* 
+   HAYATI - COZY SCRAPBOOK THEME
+   'A nostalgic journey through your daily tasks.'
+   Feel: Handmade | Pastel | Vintage | Scrapbook | Cozy
+    */
+
+/* 
+   DESIGN TOKENS - The Scrapbook Palette
+    */
+
+body.boho-theme {
+    /*  Base Tones  */
+    --paper-bg: #F0EFE7;         /* Off-White/Cream (Kept for contrast) */
+    --paper-texture: url('https://www.transparenttextures.com/patterns/cream-paper.png');
+    
+    /*  Autumn Forest Palette  */
+    --note-yellow: #B78953;      /* Amber Glow */
+    --note-pink: #964734;        /* Crimson Blaze */
+    --note-blue: #243533;        /* Lagoon */
+    --note-green: #4C563F;       /* Moss Mist */
+    --note-purple: #692721;      /* Maple Spice */
+    
+    /*  Text Tones  */
+    --ink-primary: #243533;      /* Lagoon (Dark Teal) */
+    --ink-secondary: #4C563F;    /* Moss Mist */
+    --pencil-gray: #692721;      /* Maple Spice */
+    
+    /*  Accents  */
+    --tape-color: rgba(255, 255, 255, 0.2);
+    --pin-red: #964734;          /* Crimson Blaze */
+    --pin-gold: #B78953;         /* Amber Glow */
+    
+    /*  Typography  */
+    --font-hand: 'Caveat', cursive;
+    --font-body: 'Quicksand', sans-serif;
+    
+    /*  Shadows & Effects  */
+    --shadow-paper: 3px 3px 10px rgba(0,0,0,0.1);
+    --shadow-lifted: 5px 10px 20px rgba(0,0,0,0.15);
+}
+
+/* 
+   GLOBAL OVERRIDES - Handmade Feel
+    */
+
+body.boho-theme {
+    background-color: var(--paper-bg);
+    background-image: var(--paper-texture);
+    color: var(--ink-primary);
+    font-family: var(--font-body);
+}
+
+/* Hide previous theme elements */
+body.boho-theme .modern-visual,
+body.boho-theme .tea-scene-illustration {
+    display: none !important;
+}
+
+/* Show new theme elements */
+body.boho-theme .boho-visual { display: block !important; }
+body.boho-theme .boho-only { display: block !important; }
+
+/* Typography */
+body.boho-theme h1, 
+body.boho-theme h2, 
+body.boho-theme h3,
+body.boho-theme .logo-text,
+body.boho-theme .nav-link {
+    font-family: var(--font-hand);
+}
+
+body.boho-theme h1 {
+    font-size: 4rem;
+    transform: rotate(-2deg);
+    text-shadow: 2px 2px 0px rgba(0,0,0,0.05);
+}
+
+body.boho-theme h2 {
+    font-size: 3rem;
+    position: relative;
+    display: inline-block;
+}
+
+/* Underline doodle for headings */
+body.boho-theme h2::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 10px;
+    background: url('data:image/svg+xml;utf8,<svg viewBox=\'0 0 100 10\' xmlns=\'http://www.w3.org/2000/svg\'><path d=\'M0 5 Q 50 10 100 5\' stroke=\'%23e74c3c\' fill=\'none\' stroke-width=\'2\'/></svg>');
+    background-size: 100% 100%;
+    margin-top: -5px;
+}
+
+/* 
+   NAVIGATION - Washi Tape Style
+    */
+
+body.boho-theme .navbar {
+    background: rgba(255, 255, 255, 0.9);
+    border-bottom: 2px dashed #ddd;
+    box-shadow: var(--shadow-paper);
+}
+
+body.boho-theme .logo-text {
+    font-size: 2.5rem;
+    color: var(--ink-primary);
+}
+
+body.boho-theme .nav-link {
+    font-size: 1.5rem;
+    color: var(--ink-secondary);
+    position: relative;
+    padding: 5px 10px;
+}
+
+body.boho-theme .nav-link:hover {
+    color: var(--ink-primary);
+    transform: rotate(-2deg);
+}
+
+/* 
+   HERO SECTION - Vintage Alarm Clock Illustration
+    */
+
+body.boho-theme .hero {
+    padding-top: 120px;
+    padding-bottom: 80px;
+    /* Solid white background to match the book image */
+    background: #ffffff;
+}
+
+body.boho-theme .hero-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+body.boho-theme .hero-text {
+    background: var(--note-yellow);
+    color: #fff; /* Ensure readability on deep colors */
+    padding: 40px;
+    border-radius: 2px;
+    box-shadow: var(--shadow-lifted);
+    transform: rotate(-1deg);
+    position: relative;
+    max-width: 50%;
+}
+
+/* Tape on hero text */
+body.boho-theme .hero-text::before {
+    content: '';
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 35px;
+    background: rgba(255, 255, 255, 0.3);
+    border-left: 2px dotted rgba(0,0,0,0.1);
+    border-right: 2px dotted rgba(0,0,0,0.1);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+body.boho-theme .hero-subheadline {
+    font-family: var(--font-hand);
+    font-size: 1.8rem;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* Hero Visual - The Illustration */
+body.boho-theme .hero-visual {
+    position: relative;
+    width: 500px;
+    height: 500px;
+    animation: float 6s ease-in-out infinite;
+    /* Reset container background */
+    background: none;
+    border-radius: 0;
+}
+
+/* Layer 1: The Background Pattern Card */
+body.boho-theme .hero-visual::before {
+    content: '';
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    width: 80%;
+    height: 80%;
+    /* Seamless Beige & White Checkerboard */
+    background-color: #fff;
+    background-image:
+        linear-gradient(45deg, #F7F5F0 25%, transparent 25%, transparent 75%, #F7F5F0 75%, #F7F5F0),
+        linear-gradient(45deg, #F7F5F0 25%, transparent 25%, transparent 75%, #F7F5F0 75%, #F7F5F0);
+    background-position: 0 0, 15px 15px;
+    background-size: 30px 30px;
+    
+    transform: rotate(-6deg);
+    box-shadow: var(--shadow-paper);
+    border: 1px solid rgba(0,0,0,0.05);
+    border-radius: 4px;
+    z-index: 1;
+}
+
+/* Layer 2: The Image Polaroid */
+body.boho-theme .hero-visual::after {
+    content: '';
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    width: 80%;
+    height: 80%;
+    
+    /* The Image */
+    background-image: url('https://i.pinimg.com/736x/1f/d0/f1/1fd0f1183807add5bd14354c1bdb5c8d.jpg'); 
+    background-size: 90%;
+    background-repeat: no-repeat;
+    background-position: center 40%;
+    background-color: #fff;
+    
+    /* Polaroid Styling */
+    border: 15px solid #fff;
+    border-bottom: 50px solid #fff; /* Polaroid bottom */
+    box-shadow: var(--shadow-lifted);
+    transform: rotate(4deg);
+    border-radius: 2px;
+    z-index: 2;
+    
+    /* Remove blend mode to make it pop */
+    filter: sepia(0.1) contrast(1.05);
+}
+
+/* Decorative elements around hero */
+body.boho-theme .hero-visual::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 20px;
+    font-size: 3rem;
+    transform: rotate(15deg);
+}
+
+/* 
+   SECTIONS - Sticky Note Layout
+    */
+
+/* How It Works - Sticky Note Row */
+body.boho-theme .how-it-works {
+    background-color: #F0EFE7; /* Explicitly set background color */
+    background-image: url('https://www.transparenttextures.com/patterns/cream-paper.png');
+    padding: 100px 0;
+}
+
+body.boho-theme .steps-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    align-items: start;
+}
+body.boho-theme .step-card {
+    background: var(--note-yellow);
+    padding: 30px 20px;
+    box-shadow: var(--shadow-paper);
+    position: relative;
+    transition: transform 0.3s ease;
+    min-height: 280px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    /* Uneven edges effect using clip-path or border-radius */
+    border-radius: 2px 2px 25px 2px; 
+    color: #fff; /* Ensure readability on deep colors */
+}
+
+/* Pastel Colors for Cards */
+body.boho-theme .step-card:nth-child(1) { background: var(--note-yellow); transform: rotate(-2deg); }
+body.boho-theme .step-card:nth-child(2) { background: var(--note-pink); transform: rotate(1.5deg); margin-top: 20px; }
+body.boho-theme .step-card:nth-child(3) { background: var(--note-blue); transform: rotate(-1deg); }
+body.boho-theme .step-card:nth-child(4) { background: var(--note-green); transform: rotate(2deg); margin-top: 20px; }
+
+body.boho-theme .step-card:hover {
+    transform: scale(1.05) rotate(0deg) !important;
+    z-index: 10;
+    box-shadow: var(--shadow-lifted);
+}
+
+/* Tape Effect */
+body.boho-theme .step-tape {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%) rotate(-2deg);
+    width: 80px;
+    height: 25px;
+    background: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    border-left: 1px dashed rgba(0,0,0,0.1);
+    border-right: 1px dashed rgba(0,0,0,0.1);
+}
+
+body.boho-theme .step-number {
+    font-family: var(--font-hand);
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1.5rem;
+    opacity: 0.8;
+    margin-bottom: 10px;
+    border: none;
+    background: transparent;
+    position: static;
+    width: auto;
+    height: auto;
+}
+
+body.boho-theme .step-icon {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 15px;
+    color: #fff;
+}
+
+body.boho-theme .hand-drawn-icon {
+    width: 100%;
+    height: 100%;
+    filter: drop-shadow(2px 2px 0px rgba(0,0,0,0.1));
+}
+
+body.boho-theme .step-title {
+    font-family: var(--font-hand);
+    font-size: 1.8rem;
+    color: #fff;
+    margin-bottom: 10px;
+    line-height: 1.2;
+}
+
+body.boho-theme .step-description {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.5;
+}   line-height: 1.5;
+}
+
+/* Responsive Layout */
+@media (max-width: 1024px) {
+    body.boho-theme .steps-grid {
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 600px;
+        margin: 0 auto;
+    }
+    body.boho-theme .step-card { margin-top: 0 !important; }
+}
+
+@media (max-width: 600px) {
+    body.boho-theme .steps-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Features - Sticky Notes Grid */
+body.boho-theme .features {
+    background: transparent;
+}
+
+body.boho-theme .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+body.boho-theme .feature-card {
+    padding: 30px;
+    box-shadow: var(--shadow-paper);
+    position: relative;
+    transition: transform 0.3s;
+}
+
+/* Assign pastel colors to cards */
+body.boho-theme .feature-card:nth-child(1) { background: var(--note-yellow); transform: rotate(-2deg); }
+body.boho-theme .feature-card:nth-child(2) { background: var(--note-pink); transform: rotate(1deg); }
+body.boho-theme .feature-card:nth-child(3) { background: var(--note-blue); transform: rotate(-1deg); }
+body.boho-theme .feature-card:nth-child(4) { background: var(--note-green); transform: rotate(2deg); }
+
+body.boho-theme .feature-card:hover {
+    transform: scale(1.05) !important;
+    z-index: 10;
+}
+
+/* Pin effect */
+body.boho-theme .feature-card::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 15px;
+    height: 15px;
+    background: radial-gradient(circle at 30% 30%, var(--pin-red), #c0392b);
+    border-radius: 50%;
+    box-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+body.boho-theme .feature-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+/* 
+   CHAT INTERFACE - The Journal Page
+    */
+
+body.boho-theme .chat-container {
+    background: #fff;
+    background-image: linear-gradient(#e1e1e1 1px, transparent 1px);
+    background-size: 100% 25px; /* Lined paper */
+    border-radius: 5px;
+    box-shadow: var(--shadow-lifted);
+    border-left: 20px solid #e74c3c; /* Notebook binding look */
+    padding-left: 10px;
+}
+
+body.boho-theme .chat-header {
+    background: transparent;
+    border-bottom: 2px solid var(--ink-primary);
+    padding: 20px;
+}
+
+body.boho-theme .chat-title {
+    font-family: var(--font-hand);
+    font-size: 2rem;
+}
+
+body.boho-theme .chat-messages {
+    background: transparent;
+}
+
+body.boho-theme .chat-message {
+    font-family: var(--font-hand);
+    font-size: 1.3rem;
+}
+
+body.boho-theme .bot-bubble {
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px dashed var(--ink-secondary);
+    box-shadow: 2px 2px 0 rgba(0,0,0,0.1);
+    border-radius: 10px;
+}
+
+body.boho-theme .user-bubble {
+    background: var(--note-blue);
+    color: var(--ink-primary);
+    border-radius: 10px;
+    box-shadow: 2px 2px 0 rgba(0,0,0,0.1);
+    transform: rotate(1deg);
+}
+
+body.boho-theme .chat-input-container {
+    background: transparent;
+    border-top: 2px solid var(--ink-primary);
+}
+
+body.boho-theme .chat-input {
+    font-family: var(--font-hand);
+    font-size: 1.2rem;
+    background: rgba(255,255,255,0.8);
+    border: 2px solid var(--ink-secondary);
+    border-radius: 20px;
+}
+
+body.boho-theme .chat-send-btn {
+    background: var(--pin-red);
+    border-radius: 50%;
+    color: white;
+}
+
+/* 
+   BUTTONS - Hand-Drawn
+    */
+
+body.boho-theme .btn {
+    font-family: var(--font-hand);
+    font-size: 1.5rem;
+    border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+    border: 2px solid var(--ink-primary);
+    box-shadow: 3px 3px 0 var(--ink-primary);
+    transition: all 0.2s;
+}
+
+body.boho-theme .btn:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 5px 5px 0 var(--ink-primary);
+}
+
+body.boho-theme .btn-primary {
+    background: var(--note-pink);
+    color: var(--ink-primary);
+}
+
+body.boho-theme .btn-secondary {
+    background: var(--note-yellow);
+    color: var(--ink-primary);
+}
+
+/* 
+   DECORATIVE EXTRAS
+    */
+
+/* Doodles */
+body.boho-theme .hero::after {
+    content: '';
+    position: absolute;
+    top: 100px;
+    left: 50px;
+    font-size: 2rem;
+    transform: rotate(-15deg);
+}
+
+body.boho-theme .how-it-works::before {
+    content: '';
+    position: absolute;
+    top: 20px;
+    right: 10%;
+    font-size: 2rem;
+}
+
+/* 
+   END OF COZY SCRAPBOOK THEME
+    */
+
+/* 
+   SECTION TRANSITIONS & BACKGROUNDS
+   Ensuring curved partitions match adjacent section colors
+*/
+
+/* 1. Hero (White) -> How It Works (Cream) */
+body.boho-theme .transition-hero-to-how .wave-path {
+    fill: #F0EFE7; /* Explicitly match How It Works background color */
+}
+
+/* 2. How It Works (Cream) -> Features (White) */
+body.boho-theme .features {
+    background: #ffffff; /* Set Features to White */
+}
+
+body.boho-theme .transition-how-to-features .wave-path {
+    fill: #ffffff; /* Matches Features */
+}
+
+/* 3. Features (White) -> CTA (Cream) */
+body.boho-theme .cta {
+    background: #A3472A !important;
+    background-image: none !important;
+}
+
+body.boho-theme .cta-gradient {
+    display: none; /* Hide modern gradient */
+}
+
+body.boho-theme .transition-features-to-cta .wave-path {
+    fill: var(--paper-bg); /* Matches CTA */
+}
+
+/* 4. CTA (Cream) -> Footer (Dark) */
+body.boho-theme .footer {
+    background: var(--ink-primary);
+    color: #fff;
+}
+
+body.boho-theme .transition-cta-to-footer .wave-path {
+    fill: var(--ink-primary); /* Matches Footer */
+}
+
+
+/* Fix for 'rectangle' gaps after curved partitions */
+body.boho-theme .section-transition {
+    position: absolute; /* Position absolutely to sit at the very bottom */
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    line-height: 0;
+    font-size: 0;
+    overflow: hidden;
+    background: transparent;
+    margin: 0;
+    padding: 0;
+    border: none;
+    z-index: 1; /* Ensure it sits above the section background */
+}
+
+/* Ensure parent sections are relative so absolute positioning works */
+body.boho-theme .hero,
+body.boho-theme .how-it-works,
+body.boho-theme .features,
+body.boho-theme .cta {
+    position: relative;
+}
+
+body.boho-theme .wave-transition {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 0;
+}
+
