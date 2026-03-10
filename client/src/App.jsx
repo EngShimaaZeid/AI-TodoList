@@ -23,7 +23,7 @@ import Profile from './pages/Profile';
 function App() {
   const [currentTheme, setCurrentTheme] = useState(() => {
     const saved = localStorage.getItem('hayati-theme');
-    return saved || THEMES.MODERN;
+    return saved || THEMES.GENZ;
   });
   const [chatOpen, setChatOpen] = useState(false);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
