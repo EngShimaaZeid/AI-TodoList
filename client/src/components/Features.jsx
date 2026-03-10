@@ -511,12 +511,12 @@ const Features = ({ isBoho, isGenz, currentTheme }) => {
             style={{ width: '100%', height: '80px' }}
           >
             <path
-              fill="#964734"
+              fill="#A3472A"
               fillOpacity="0.8"
               d="M0,50 C240,120 480,20 720,80 C960,140 1200,40 1440,70 L1440,150 L0,150 Z"
             />
             <path
-              fill="#964734"
+              fill="#A3472A"
               d="M0,90 C180,30 400,110 600,50 C850,10 1050,100 1250,60 C1380,40 1420,80 1440,90 L1440,150 L0,150 Z"
             />
           </svg>
