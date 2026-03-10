@@ -11,30 +11,8 @@ const Hero = ({ isBoho, isGenz, currentTheme, onOpenChat, isAuthenticated }) => 
   const navigate = useNavigate();
 
   const handleLetsStart = async () => {
-    if (!isAuthenticated) {
-      // User not logged in - redirect to login
-      navigate('/login');
-      return;
-    }
-
-    // User is logged in - check onboarding state
-    const userId = localStorage.getItem('hayati_user_id');
-    try {
-      const response = await fetch(`http://localhost:5001/api/users/${userId}`);
-      const userData = await response.json();
-      
-      if (userData.storyCompleted && userData.eisenhowerCompleted) {
-        // Returning user - go to To-Do dashboard
-        navigate('/todo');
-      } else {
-        // First time or incomplete onboarding - open chat for three-button flow
-        onOpenChat();
-      }
-    } catch (error) {
-      console.error('Error checking user state:', error);
-      // Default to opening chat
-      onOpenChat();
-    }
+    // For guests or logged-in users, navigate to todo list directly
+    navigate('/todo');
   };
 
   return (

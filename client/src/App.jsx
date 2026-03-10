@@ -93,10 +93,6 @@ function App() {
     return isAuthenticated ? children : <Navigate to="/login" />;
   };
 
-  if (isCheckingAuth) {
-    return null;
-  }
-
   return (
     <Router>
       <ScrollToTop />
